@@ -7,8 +7,8 @@ import java.time.LocalDateTime;
 public class PaymentService {
     private final ExChangeRateProvider exRateProvider;
 
-    public PaymentService() {
-        exRateProvider = new SimpleExRateProvider(); // 의존 관계를 설정하는 코드
+    public PaymentService(ExChangeRateProvider exRateProvider) {
+        this.exRateProvider =  exRateProvider; // 의존 관계를 설정하는 코드
     }
 
    public Payment prepare(Long orderId, String currency, BigDecimal foreignCurrencyAmount) throws IOException {
